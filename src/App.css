@@ -1,32 +1,237 @@
+html body {
+  margin:0;
+  padding:0;
+  background:#1c1f1d;
+}
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700,900');
+
 .App {
-  text-align: center;
+  height:100vh;
+  width:100%;
+  background:#1c1f1d;
+  color:#7d0723;
+  font-family: 'Poppins', sans-serif;
+}
+.titleText {
+width:100%;
+height:90vh;
+opacity:0;
+transform:translateY(200vh);
+position:absolute;
+display:flex;
+flex-direction:column;
+text-align:center;
+justify-content:center;
+align-items:center;
+}
+.titleTextAnimated {
+  animation:slideOutState 1s forwards ease-in-out;
+}
+@keyframes slideOutState {
+    from {transform: translateY(0); opacity:1}
+    to {transform: translateY(-200vh); opacity:0}
+}
+.titleText h1 {
+  margin:0;
+  color:white;
+  font-size:96px;
+  text-shadow:  #F44336 7px 3px 0px;
+}
+.titleText h3 {
+  margin:16px 0 0 0;
+  font-weight:500;
+  font-size:32px;
+  max-width:600px;
+  line-height:1.2;
+  color:white;
+}
+.button {
+  width:400px;
+  height:80px;
+  margin-top:48px;
+  background:#7d0723;
+  box-shadow:  #F44336 7px 3px 0px;
+  border-radius:12px;
+  color:white;
+  display:flex;
+  text-shadow:  #F44336 7px 3px 0px;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:all 0.8s ease-in-out;
+}
+.button:hover {
+  box-shadow: red 1px 1px 0px;
+  text-shadow: red 7px 3px 0px!important;
+}
+.button h1 {
+    font-weight: 900;
+    font-size: 73px;
+    margin: 0;
+    margin-left: -46px;
+    margin-bottom: 15px;
+    width: 135%;
+    overflow: visible;
+    transition: all 0.6s ease-in-out;
+}
+.buttonText:hover {
+  text-shadow: red 1px 1px 0px!important;
+  color:white;
+  font-size:48px;
+  margin:0;
+}
+.animationContainer {
+  transform: rotate(90deg);
+  position:absolute;
+  width:100%;
+  height:80vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.animationContainer path {
+   stroke:#7d0723!important;
+  fill:#7d0723!important;
+  box-shadow: blue 50px 1px 0px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.titleTextNotAnimated {
+  animation:slideInState 1s forwards ease-in-out;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@keyframes slideInState {
+    from {transform: translateY(200vh); opacity:0}
+    to {transform: translateY(0); opacity:1}
 }
 
-.App-link {
-  color: #61dafb;
+.cardContainer {
+  width:70%;
+  flex-wrap:wrap;
+  display:flex;
+  margin-top:5vh;
+  justify-content: center;  
+  margin-bottom: 13vh;
+}
+.card {
+  background: black; /* fallback for old browsers */
+/*  background: -webkit-linear-gradient(to right, #4568dc, #b06ab3);  Chrome 10-25, Safari 5.1-6 
+  background: linear-gradient(to right, #4568dc, #b06ab3); */
+  width: calc((100% - 114px) / 2);
+  max-width:285px;
+  max-height:450px;
+  height: 46vw;
+  border-radius: 13px;
+  box-shadow: #F44336 13px 7px 0px;
+  margin:16px;
+  color:white;
+  animation: slideUp 0.6s forwards ease-in-out;
+  cursor:pointer;
+  transition:transform 1.1s ease-in-out;
+  transition: box-shadow 0.4s ease-in-out;
+  text-decoration: none;
+}
+.card:hover {
+  box-shadow: #F44336 2px 2px 0px;
+  transform:scale(1.1);
+  color: #F44336;
 }
 
-@keyframes App-logo-spin {
+@keyframes slideUp {
   from {
-    transform: rotate(0deg);
+    transform: translateY(100px); opacity:0.5; 
   }
   to {
-    transform: rotate(360deg);
+    transform: translateY(0); opacity:1;
   }
 }
+
+.card h2 {
+  font-size:288%;
+  /*color:white;*/
+  line-height:1.05;
+  transition:color 0.6s ease-in-out;
+  /*margin:0;
+  margin-left:8px;*/
+  margin:16px;
+  text-align:left;
+  overflow:hidden;
+  word-break: break-word;
+}
+.card h3 {
+  font-size:22px;
+  color:white;
+  margin:0;
+  width:90%;
+  margin-left:16px;
+  margin-top:-8px;
+  text-align:left;
+}
+.card h4 {
+  font-size:22px;
+  position:absolute;
+  bottom:16px;
+  /*color:white;*/
+  transition:color 0.6s ease-in-out;
+  margin:0;
+  width:90%;
+  margin-left:16px;
+  margin-top:-8px;
+  text-align:left;
+  text-transform: lowercase;
+}
+.card img {
+  height: 47%;
+  width:100%;
+  display:none;
+  border-radius:13px 13px 0 0;
+}
+@media screen and (max-width: 880px) {
+  .titleText h1 {
+      font-size: 475%;
+    line-height: 1;
+    text-align: left;
+    word-break: break-word;
+    width: 80%;
+    margin-top: 5vh;
+    margin-bottom: -2.5vh;
+    text-shadow: #F44336 7px 3px 0px !important;
+  }
+  .titleText h3 {
+    width:79%;
+    text-align:left;
+    font-size:180%;
+    margin-top:36px;
+  }
+  .projectTitleText h1 {
+    font-size:300%;
+    text-align:center;
+  }
+  .button {
+    width:80%;
+    height:11vh;
+  }
+  .button h1 {
+    margin-bottom: 12%;
+    font-size: 285%;
+    text-align: center;
+    width: 100%;
+  }
+  .card {
+    width: calc((100% - 25px) / 1);
+    padding-bottom: 16px;
+    min-height: 56vh;
+    margin: 16px 0 16px 0!important;
+  }
+  .card h2 { 
+    font-size: 41px;
+    margin-bottom: 8px;
+  }
+  .cardContainer {
+    width: 93%;
+  }
+  .card h3 {
+    width:80%;
+    margin-top: 16px;
+    font-size:22px;
+  }
+  }
